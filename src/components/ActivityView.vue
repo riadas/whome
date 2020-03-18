@@ -122,5 +122,21 @@ span.unknown {
     margin-top: 5px;
 }
 
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #2D9CDB;
+  font-weight: bold;
+  background-color: white;
+  margin: 0 20px;
+  padding: 3px;
+}
+
+.nav-pills .nav-link,
+.nav-pills .show > .nav-link {
+  outline: none !important;
+  padding: 3px;
+}
+
+
 
 </style>

@@ -58,6 +58,8 @@ export default {
     align-items: center;
     color: white;
     padding-top: 30px;
+    border-top: 1px solid white;
+    margin-top: -10px;
 }
 
 .tabs {
