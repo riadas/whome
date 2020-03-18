@@ -14,7 +14,8 @@ router.post('/', (req, res) => {
     console.log(req.body);
     console.log("MAYBE");
     console.log(JSON.parse(JSON.stringify(req.body)).html);
-    const $ = cheerio.load(JSON.parse(JSON.stringify(req.body)).html);
+    const result = JSON.parse(JSON.stringify(req.body)).html;
+    const $ = cheerio.load(result);
     
     const activeDevices = [];
 
@@ -26,7 +27,8 @@ router.post('/', (req, res) => {
     });
     
     const updatedData = Database.updateActives(activeDevices);
-    res.status(200).json(activeDevices).end();
+    
+    res.status(200).json(result.substring(0, 100)).end();
 });
 
 /* GET activity statuses */

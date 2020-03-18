@@ -126,7 +126,7 @@ class Database {
         
         unknownActiveDevices = [];
         for (const device of activeDevices) {
-            const usersWithDevice = users.filter((user) => {user.primary_device === device || user.secondary_devices.includes(device)});
+            const usersWithDevice = users.filter((user) => {return (user.primary_device === device || user.secondary_devices.includes(device))});
             if (usersWithDevice.length == 0) {
                 unknownActiveDevices.push(device);
             }
