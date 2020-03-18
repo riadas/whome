@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     
     const updatedData = Database.updateActives(activeDevices);
     
-    res.status(200).json(result.substring(0, 100)).end();
+    res.status(200).json([result.substring(0, 100)]).end();
 });
 
 /* GET activity statuses */
