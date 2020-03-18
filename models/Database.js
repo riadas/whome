@@ -25,7 +25,7 @@ let users = [{ name: "Ria Das",
             },
             ];
 let unknownActiveDevices = [];
-let ip = "";
+let ip = "73.227.95.92";
 
 class Database {
 
@@ -141,7 +141,8 @@ class Database {
 
     static setIP(new_ip) {
         ip = new_ip;
-        return new_ip;
+        
+        return ip;
     }
 
 }

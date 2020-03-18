@@ -29,16 +29,18 @@ export default {
         return {
             active_statuses: [],
             unknown_devices: [],
-            timer: "",
+            frontendTimer: "",
+            backendTimer: "",
         }
     },
     created: function() {
         // make API call to get updated active statuses with setInterval
         this.updateActives();
-        this.timer = setInterval(this.updateActives, 15000);
+        this.frontendTimer = setInterval(this.updateActivesFrontend, 10000);
+        this.backendTimer = setInterval(this.updateActivesBackend, 30000);
     }, 
     methods: {
-        updateActives: function() {
+        updateActivesFrontend: function() {
             axios.get('/api/actives/')
             .then(response => {
                 console.log("GET /API/ACTIVES call successful!");
@@ -50,10 +52,21 @@ export default {
                 console.log(JSON.stringify(err));
                 }
             );
+        },
+        updateActivesBackend: function() {
+            axios.post('/api/actives/')
+            .then(response => {
+                console.log("POST /API/ACTIVES call successful");
+                console.log("response: "+JSON.stringify(response));
+            })
+            .catch(err => {
+                console.log(JSON.stringify(err));
+            });
         }
     },
     beforeDestroy() {
-        clearInterval(this.timer);
+        clearInterval(this.frontendTimer);
+        clearInterval(this.backendTimer);
     }
 }
 </script>
