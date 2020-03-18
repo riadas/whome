@@ -2,8 +2,8 @@
     <div id="activity-view">
         <table>
             <tr>
-                <th>Name</th>
-                <th>Status</th>
+                <th id="name-header">Name</th>
+                <th id="status-header">Status</th>
             </tr>
             <tr v-for="status in this.active_statuses" :key="status.name">
                 <td> {{ status.name }} </td>
@@ -121,5 +121,6 @@ span.unknown {
     font-size: small;
     margin-top: 5px;
 }
+
 
 </style>
