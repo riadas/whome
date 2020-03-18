@@ -58,7 +58,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 #activity-view {
     width: 80%;
@@ -136,7 +136,5 @@ span.unknown {
   outline: none !important;
   padding: 3px !important;
 }
-
-
 
 </style>
