@@ -8,17 +8,23 @@ const cheerio = require("cheerio");
 
 /* POST current addresses */
 router.post('/', (req, res) => {
+    console.log("req");
+    console.log(req);
     console.log("req.body");
     console.log(req.body);
-    const data = cheerio.load(req.body);
+    console.log("MAYBE");
+    console.log(JSON.parse(JSON.stringify(req.body)).html);
+    const $ = cheerio.load(JSON.parse(JSON.stringify(req.body)).html);
     
     const activeDevices = [];
-    data(".readonlyLabel").each((index, element) => {
+
+    $(".readonlyLabel").each((index, element) => {
         const text = $(element).text();
         if (text.split(":").length == 6) {
-           activeDevices.add(text.toUpperCase());    
+           activeDevices.push(text.toUpperCase());    
         }
     });
+    
     const updatedData = Database.updateActives(activeDevices);
     res.status(200).json(activeDevices).end();
 });
