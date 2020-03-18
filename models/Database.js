@@ -25,6 +25,7 @@ let users = [{ name: "Ria Das",
             },
             ];
 let unknownActiveDevices = [];
+let ip = "";
 
 class Database {
 
@@ -133,6 +134,16 @@ class Database {
         }
         return users;
     }
+
+    static getIP() {
+        return ip;
+    }
+
+    static setIP(new_ip) {
+        ip = new_ip;
+        return new_ip;
+    }
+
 }
 
 module.exports = Database;
