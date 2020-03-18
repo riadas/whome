@@ -74,7 +74,7 @@ table {
 
 td, th {
   border: 1px solid lightgray;
-  text-align: center;
+  text-align: center !important;
   padding: 8px;
 }
 
@@ -135,6 +135,15 @@ span.unknown {
 .nav-pills .show > .nav-link {
   outline: none !important;
   padding: 3px !important;
+}
+
+a {
+  color:white !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+a:hover {
+  color: #fff !important;
 }
 
 </style>
