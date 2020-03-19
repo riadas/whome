@@ -13,6 +13,7 @@ router.post('/', async function(req, res) {
     try {
         const deployment_ip = await axios.get("http://api.ipify.org/");
         console.log("deployment_ip: " + deployment_ip.data);
+        console.log("home network ip: "+ip);
         let result;
         if (deployment_ip.data === ip) {
             result = await axios.get("http://10.0.0.1");

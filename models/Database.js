@@ -1,5 +1,5 @@
 let users = [{ name: "Ria Das", 
-               primary_device: "B8:44:D9:AB:E3:20",
+               primary_device: "F8:87:F1:1B:CC:16",
                secondary_devices: ["a4:83:e7:66:60:d0".toUpperCase(), ],
                last_seen: "Never",
                active: false,
@@ -18,8 +18,8 @@ let users = [{ name: "Ria Das",
             },
 
             { name: "Souripriya Das", 
-               primary_device: "44:03:2C:71:13:2B",
-               secondary_devices: ["F8:87:F1:1B:CC:16", "34:64:A9:63:3B:6D", "F0:18:98:53:35:61"],
+               primary_device: "B8:44:D9:AB:E3:20",
+               secondary_devices: ["F8:87:F1:1B:CC:16", "34:64:A9:63:3B:6D", "F0:18:98:53:35:61", "44:03:2C:71:13:2B"],
                last_seen: "Never",
                active: false,
             },
@@ -73,8 +73,8 @@ class Database {
         const active_statuses = [];
         const current_date = new Date();
         for (const user of users) {
-            console.log("current user:")
-            console.log(JSON.stringify(user));
+            //console.log("current user:")
+            //console.log(JSON.stringify(user));
             if (user.active) {
                 active_statuses.push({ name: user.name, last_seen: "Active"});
             } else {
@@ -83,30 +83,33 @@ class Database {
                         name: user.name, last_seen: user.last_seen,
                     });
                 } else {
+                    console.log("current_date: "+current_date.getTime());
+                    console.log("user.last_seen: "+user.last_seen.getTime());
                     let time_diff = Math.round((current_date.getTime() - user.last_seen.getTime())/1000);
+                    console.log("time_diff: "+time_diff);
                     let units = "seconds";
-                    if (time_diff >= 60) {
+                    if (time_diff >= 60 && units === "seconds") {
                         time_diff = Math.round(time_diff/60);
                         units = "minutes";
                     }
                     
-                    if (time_diff >= 60) {
+                    if (time_diff >= 60 && units === "minutes") {
                         time_diff = Math.round(time_diff/60);
                         units = "hours";
                     }
     
-                    if (time_diff >= 24) {
+                    if (time_diff >= 24 && units === "hours") {
                         time_diff = Math.round(time_diff/24);
                         units = "days";
                     }
     
-                    if (time_diff >= 365) {
+                    if (time_diff >= 365 && units === "days") {
                         time_diff = Math.round(time_diff/365);
                         units = "years";
                     }
     
                     active_statuses.push({
-                        name: user.name, last_seen: "Last seen " + time_diff + " " + units + "ago",
+                        name: user.name, last_seen: "Last seen " + time_diff + " " + units + " ago",
                     });
                 }
 
@@ -132,6 +135,7 @@ class Database {
                 unknownActiveDevices.push(device);
             }
         }
+        unknownActiveDevices = Array.from(new Set(unknownActiveDevices));
         return users;
     }
 

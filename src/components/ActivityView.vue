@@ -8,7 +8,9 @@
             <tr v-for="status in this.active_statuses" :key="status.name">
                 <td> {{ status.name }} </td>
                 <td v-if="status.last_seen === 'Active'"> <span class="active">{{ status.last_seen }} </span> </td>
-                <td v-else> <span class="inactive"> {{status.last_seen}} </span></td>
+                <td v-if="status.last_seen === 'Never'"> <span class="never"> {{status.last_seen}} </span></td>
+                <td v-if="status.last_seen !== 'Never' && status.last_seen !== 'Active'"> <span class="inactive"> {{status.last_seen}} </span></td>
+
             </tr>
         </table>   
         <span id="unknown-header">
@@ -35,7 +37,8 @@ export default {
     },
     created: function() {
         // make API call to get updated active statuses with setInterval
-        this.updateActives();
+        this.updateActivesBackend();
+        this.updateActivesFrontend();
         this.frontendTimer = setInterval(this.updateActivesFrontend, 10000);
         this.backendTimer = setInterval(this.updateActivesBackend, 30000);
     }, 
@@ -119,6 +122,14 @@ span.inactive {
     border-radius: 5px;
     color: darkred;
     background-color: #f1a375f0;
+    font-size: small;
+}
+
+span.never {
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: whitesmoke;
+    background-color: #b53535;
     font-size: small;
 }
 
