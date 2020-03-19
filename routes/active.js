@@ -31,9 +31,10 @@ router.post('/', async function(req, res) {
             activeDevices.push(text.toUpperCase());    
             }
         });
-        
+        console.log("activeDevices: "+activeDevices);
         const updatedData = Database.updateActives(activeDevices);
-        res.status(200).json(activeDevices).end();
+        console.log("updatedData: "+updatedData);
+        res.status(200).json(updatedData).end();
     } catch (err) {
         console.log(err);
         res.status(400).json(err).end();
