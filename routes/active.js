@@ -22,6 +22,7 @@ router.post('/', async function(req, res) {
         }
         
         const $ = cheerio.load(result.data);
+        console.log("html: "+$.html());
         const activeDevices = [];
 
         $(".readonlyLabel").each((index, element) => {
