@@ -8,6 +8,7 @@
 <script>
 import Nav from "./components/Nav";
 import ContentPanel from "./components/ContentPanel";
+import axios from "axios";
 
 export default {
   name: "app",
@@ -18,6 +19,16 @@ export default {
   data: function() {
       return {}
   },
+  created: function() {
+    axios.post('/api/actives/')
+    .then(response => {
+        console.log("POST /API/ACTIVES call successful");
+        console.log("response: "+JSON.stringify(response));
+    })
+    .catch(err => {
+        console.log(JSON.stringify(err));
+    });
+  }
 };
 </script>
 
