@@ -15,7 +15,7 @@
                     <div class="tabbed-content">Coming soon!</div>
                 </b-tab>
                 <b-tab title="Manage Profiles 🙋‍">
-                    <div class="tabbed-content">I'm the third tab!</div>
+                    <div class="tabbed-content">Coming soon!</div>
                 </b-tab>
             </b-tabs>
         </div>

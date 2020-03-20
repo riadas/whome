@@ -1,6 +1,6 @@
 <template>
     <div id="footer">
-        <span><b>&lt;/&gt;</b>&nbsp;by Ria Das </span>
+        <span>Made with <b>&lt;/&gt;</b>&nbsp;by Ria Das </span>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
 <style scoped>
 
 #footer {
-    background-color: black;
+    background-color: #a969a9;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -24,7 +24,8 @@ export default {
 }
 
 span {
-    margin-top: 8px;
+    margin-top: 10px;
+    font-size: smaller;
 }
 
 </style>
