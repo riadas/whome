@@ -30,7 +30,7 @@ export default {
    justify-content: space-between;
    width: 100%;
    height: 65px; 
-   background-color: black;
+   background-color: transparent;
    color: white;
    padding: 0 20px;
 }
