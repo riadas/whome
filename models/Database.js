@@ -70,7 +70,7 @@ class Database {
                     if (activeDevices.includes(user.primary_device)) {
                         newValues = { $set: { last_seen: new Date(), active: true } };            
                     } else {
-                        newValues = { $set: { last_seen: new Date(), active: false } };
+                        newValues = { $set: { active: false } };
                     }
                     
                     MongoClient.connect(url, function(err, db) {

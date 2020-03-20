@@ -45,7 +45,7 @@ export default {
 #mini-panel {
     margin-top: 5%;
     width: 60%;
-    min-width: 300px;
+    min-width: 650px;
     display: flex;
     justify-content: center;
 }
