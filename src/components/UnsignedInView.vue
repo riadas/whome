@@ -8,7 +8,7 @@
         </div>
         <div id="password-container">
             <input v-model="password" type="password" id="pass" name="password" minlength="8" required>
-            <button @click="onSubmit"> Submit </button>
+            <button id="submit" @click="onSubmit"> Submit </button>
         </div>
     </div>
 </template>
@@ -86,5 +86,9 @@ export default {
 
 #instruction {
     color: white;
+}
+
+#submit {
+    padding-bottom: 1px;
 }
 </style>
