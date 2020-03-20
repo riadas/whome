@@ -170,4 +170,8 @@ a:hover {
   color: #fff !important;
 }
 
+.tabs {
+    background-color: transparent !important;
+}
+
 </style>

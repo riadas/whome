@@ -39,7 +39,7 @@ export default {
     flex-direction: column;
     align-items: center;
     height: 100%;
-    background-color: #2D9CDB;
+    background-color: transparent;
     width: 100%;
 }
 

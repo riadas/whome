@@ -30,11 +30,13 @@ export default {
    justify-content: space-between;
    width: 100%;
    height: 65px; 
-   background-color: #2D9CDB;
+   background-color: black;
    color: white;
    padding: 0 20px;
 }
-
+.nav h2 {
+    margin: 0;
+}
 #title, #about {
     display: flex;
     align-items: center;

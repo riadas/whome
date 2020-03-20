@@ -2,19 +2,22 @@
   <div id="app">
     <Nav/>
     <ContentPanel />
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Nav from "./components/Nav";
 import ContentPanel from "./components/ContentPanel";
+import Footer from "./components/Footer";
 import axios from "axios";
 
 export default {
   name: "app",
   components: {
     Nav,
-    ContentPanel
+    ContentPanel,
+    Footer,
   },
   data: function() {
       return {}
@@ -30,6 +33,7 @@ export default {
     });
   }
 };
+// linear-gradient(180deg, #3868c1, #638bd6, #e683d6)
 </script>
 
 
@@ -43,7 +47,7 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: lightskyblue;
+  background: linear-gradient(180deg, #3868c1, #638bd6, #e683d6);
   margin: 0;
   height: 100%;
   display: flex;
@@ -60,6 +64,11 @@ body {
 
 #app {
     height: 95%;
+    background: linear-gradient(180deg, #3868c1, #638bd6, #e683d6);
+}
+
+#footer {
+  bottom: -10px;
 }
 
 </style>
