@@ -18,12 +18,12 @@ router.post('/', async function(req, res) {
         if (deployment_ip.data === ip) {
             result = await axios.get("http://10.0.0.1");
         } else {
-            result = await axios.get("http://" + ip + ":8000");
+            result = await axios.get("http://" + ip + ":8000/");
         }
         
         const $ = cheerio.load(result.data);
         console.log("html: "+$.html());
-        const activeDevices = [];
+        let activeDevices = [];
 
         $(".readonlyLabel").each((index, element) => {
             const text = $(element).text();
