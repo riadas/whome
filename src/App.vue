@@ -44,7 +44,7 @@ export default {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "system-ui", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(180deg, #3868c1, #638bd6, #e683d6);
